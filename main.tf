@@ -4,6 +4,45 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+resource "aws_security_group" "allow_all" {
+  name        = "allow_all"
+  description = "Allow all inbound traffic"
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_subnet" "one" {
+  vpc_id            = "${aws_security_group.allow_all.vpc_id}"
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "${var.aws_az1}"
+
+  tags {
+    Name = "One"
+  }
+}
+
+resource "aws_subnet" "two" {
+  vpc_id            = "${aws_security_group.allow_all.vpc_id}"
+  cidr_block        = "10.0.1.0/24"
+  availability_zone = "${var.aws_az2}"
+
+  tags {
+    Name = "Two"
+  }
+}
+
 resource "aws_db_instance" "main_rds_instance" {
   identifier        = "${var.rds_instance_name}"
   allocated_storage = "${var.rds_allocated_storage}"
@@ -15,11 +54,12 @@ resource "aws_db_instance" "main_rds_instance" {
   password          = "${var.database_password}"
 
   #   Because we're assuming a VPC, we use this option, but only one SG id
-  vpc_security_group_ids = ["${var.rds_security_group_id}"]
+  vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
 
   #   // We're creating a subnet group in the module and passing in the name
   db_subnet_group_name = "${aws_db_subnet_group.main_db_subnet_group.name}"
-  parameter_group_name = "${var.db_parameter_group}"
+
+  # parameter_group_name = "${var.db_parameter_group}"
 
   #   // We want the multi-az setting to be toggleable, but off by default
   multi_az     = "${var.rds_is_multi_az}"
@@ -29,7 +69,7 @@ resource "aws_db_instance" "main_rds_instance" {
 resource "aws_db_subnet_group" "main_db_subnet_group" {
   name        = "${var.rds_instance_name}-subnetgrp"
   description = "RDS subnet group"
-  subnet_ids  = ["${var.subnet_az1}", "${var.subnet_az2}"]
+  subnet_ids  = ["${aws_subnet.one.id}", "${aws_subnet.two.id}"]
 }
 
 #todo set some sensible values and assign

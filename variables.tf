@@ -66,3 +66,11 @@ variable "database_password" {}
 variable "aws_region" {
   default = "eu-central-1"
 }
+
+variable "aws_az1" {
+  default = "eu-central-1a"
+}
+
+variable "aws_az2" {
+  default = "eu-central-1b"
+}
