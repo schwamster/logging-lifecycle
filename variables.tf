@@ -1,4 +1,6 @@
-variable "rds_instance_name" {}
+variable "rds_instance_name" {
+  default = "test"
+}
 
 variable "rds_is_multi_az" {
   default = "false"
@@ -11,8 +13,8 @@ variable "rds_storage_type" {
 variable "rds_allocated_storage" {
   description = "The allocated storage in GBs"
 
-  # You just give it the number, e.g. 10
-  default = 5
+  # You just give it the number, e.g. 20 - 1024
+  default = 20
 }
 
 variable "rds_engine_type" {
@@ -54,7 +56,9 @@ variable "database_user" {
   default = "superbasti"
 }
 
-variable "database_password" {}
+variable "database_password" {
+  default = "V8eMSqHaZ6xp"
+}
 
 #add security group and subnet to main and dynamically create it
 # variable "rds_security_group_id" {}

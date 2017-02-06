@@ -4,9 +4,14 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
+
 resource "aws_security_group" "allow_all" {
   name        = "allow_all"
   description = "Allow all inbound traffic"
+  vpc_id      = "${aws_vpc.main.id}"
 
   ingress {
     from_port   = 0
@@ -35,7 +40,7 @@ resource "aws_subnet" "one" {
 
 resource "aws_subnet" "two" {
   vpc_id            = "${aws_security_group.allow_all.vpc_id}"
-  cidr_block        = "10.0.1.0/24"
+  cidr_block        = "10.0.2.0/24"
   availability_zone = "${var.aws_az2}"
 
   tags {
@@ -49,9 +54,10 @@ resource "aws_db_instance" "main_rds_instance" {
   engine            = "${var.rds_engine_type}"
   engine_version    = "${var.rds_engine_version}"
   instance_class    = "${var.rds_instance_class}"
-  name              = "${var.database_name}"
-  username          = "${var.database_user}"
-  password          = "${var.database_password}"
+
+  # name              = "${var.database_name}"
+  username = "${var.database_user}"
+  password = "${var.database_password}"
 
   #   Because we're assuming a VPC, we use this option, but only one SG id
   vpc_security_group_ids = ["${aws_security_group.allow_all.id}"]
