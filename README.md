@@ -47,3 +47,14 @@ acknowledgement: diagram made with [draw.io](https://www.draw.io)
 ## disclaimer
 
 running this terraform script is most likly going to cost you some money just as it would cost you money to create those resources via aws-cli, the console or other means.
+
+
+## The Lambda function that moves events to s3
+
+The lambda function is created with dotnet core. I used amazons yeoman template to create => [yeoman template github](https://github.com/aws/aws-lambda-dotnet/tree/master/Blueprints)
+if you want to change the function you can build a new deployable package by navigating to MoveLogsToS3/src/MoveLogsToS3 and run 
+
+    dotnet lambda package
+
+then navigate to bin/Release/netcoreapp1.0 and copy MoveLogsToS3.zip to /lambdas
+

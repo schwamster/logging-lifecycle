@@ -1,0 +1,6 @@
+/lambdas/MoveLogsToS3/src/MoveLogsToS3/bin
+/lambdas/MoveLogsToS3/src/MoveLogsToS3/obj
+/lambdas/MoveToS3/src/MoveToS3/bin
+/lambdas/MoveToS3/src/MoveToS3/obj
+/lambdas/MoveToS3/test/MoveToS3.Tests/bin
+/lambdas/MoveToS3/test/MoveToS3.Tests/obj
