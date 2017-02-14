@@ -1,0 +1,3 @@
+aws kinesis get-shard-iterator --stream-name terraform-kinesis-log --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON
+#get shard iterator with prev line and then replace the the id in the next line:
+#aws kinesis get-records --limit 10 --shard-iterator "AAAAAAAAAAEq+V8zydGiZxDb4BML8iQVZeef2ePIvcwu5RBxhbWySg/043DAjTOQxyFM23DU5mXEqcEhHVXkmWqU4NAMnbZPr5Xvj7wesTCO3Yzw7GbSYV07kLsOkA+870Iv7YtN24SWt5cQ0DEHUldKyhM/x3SDqD1Nm9BQtfasaigCKV/gA/xf+ct/WudEvKf3Owg7DMXjRiv0sgQk4jNKqPKXoUi2pzqTw4UzwM4noBe93MMMfA=="
