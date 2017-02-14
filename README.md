@@ -9,4 +9,8 @@ all resources will be created with terraform.
 
 have some event source that pushes logs to a cloud watch log group. an easy example would be cloud trail -> cloud watch see here: http://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html
 
+## overview
+
+![overview](logging-lifecyle.png)
+
 
