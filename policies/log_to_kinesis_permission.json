@@ -1,0 +1,14 @@
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "kinesis:PutRecord",
+      "Resource": "%s"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "%s"
+    }
+  ]
+}

@@ -15,3 +15,9 @@ have some event source that pushes logs to a cloud watch log group. an easy exam
 
 acknowledgement: diagram made with [draw.io](https://www.draw.io)
 
+
+
+## todo
+ 
+* region in role is hardcoded...
+
