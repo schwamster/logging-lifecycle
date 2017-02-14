@@ -13,4 +13,5 @@ have some event source that pushes logs to a cloud watch log group. an easy exam
 
 ![overview](logging-lifecyle.png)
 
+acknowledgement: diagram made with [draw.io](https://www.draw.io)
 
