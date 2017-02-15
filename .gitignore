@@ -4,3 +4,9 @@
 /lambdas/MoveToS3/src/MoveToS3/obj
 /lambdas/MoveToS3/test/MoveToS3.Tests/bin
 /lambdas/MoveToS3/test/MoveToS3.Tests/obj
+/lambdas/MoveLogsToS3/.vs/config
+/lambdas/MoveLogsToS3/test/MoveLogsToS3.Tests/bin/Debug/netcoreapp1.0
+/lambdas/MoveLogsToS3/test/MoveLogsToS3.Tests/obj/Debug/netcoreapp1.0
+/lambdas/MoveLogsToS3/src/MoveLogsToS3/project.lock.json
+/lambdas/MoveLogsToS3/src/MoveLogsToS3/.vs
+/lambdas/MoveLogsToS3/.vs/restore.dg

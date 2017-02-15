@@ -4,6 +4,8 @@ variable "aws_region" {
 
 variable "log_group_name" {
   default = "TestLogGroup"
+
+  # default = "/aws/lambda/MoveLogsToS3"
 }
 
 #!see naming convetions of buckets - only lower-case characters

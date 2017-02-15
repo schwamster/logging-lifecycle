@@ -4,6 +4,8 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
+data "aws_caller_identity" "current" {}
+
 resource "aws_kinesis_stream" "log_stream" {
   name             = "terraform-kinesis-log"
   shard_count      = 1
