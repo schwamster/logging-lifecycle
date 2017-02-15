@@ -58,7 +58,7 @@
           "lib/netstandard1.3/Amazon.Lambda.TestUtilities.dll": {}
         }
       },
-      "AWSSDK.Core/3.3.5": {
+      "AWSSDK.Core/3.3.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1",
@@ -100,6 +100,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/AWSSDK.Kinesis.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.3.5.4": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.8, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard1.3/AWSSDK.S3.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/AWSSDK.S3.dll": {}
         }
       },
       "dotnet-test-xunit/2.2.0-preview2-build1029": {
@@ -2633,6 +2645,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.0",
         "dependencies": {
+          "AWSSDK.S3": "3.3.5.4",
           "Amazon.Lambda.Core": "1.0.0",
           "Amazon.Lambda.KinesisEvents": "1.0.0",
           "Amazon.Lambda.Serialization.Json": "1.0.1",
@@ -2721,12 +2734,12 @@
         "src/Amazon.Lambda.TestUtilities/TestLambdaLogger.cs"
       ]
     },
-    "AWSSDK.Core/3.3.5": {
-      "sha512": "VM0TnLNd0BU1/Jd45Woc5MI3LVeXII8eG0870TR62YDoJ8dpaBGHQ87px25fe2FzQ64AKLa9LGKY8O0bYbk/mw==",
+    "AWSSDK.Core/3.3.8": {
+      "sha512": "sDEABDAYvdjkXk9bNHzMbxmN+ubpr8YhaKlZgAhNs5N8dptVKaFTvPq9dK3/bDHxDGYJGSJcNFJ9FobUh/tsWg==",
       "type": "package",
-      "path": "AWSSDK.Core/3.3.5",
+      "path": "AWSSDK.Core/3.3.8",
       "files": [
-        "AWSSDK.Core.3.3.5.nupkg.sha512",
+        "AWSSDK.Core.3.3.8.nupkg.sha512",
         "AWSSDK.Core.nuspec",
         "lib/MonoAndroid10/AWSSDK.Core.XML",
         "lib/MonoAndroid10/AWSSDK.Core.dll",
@@ -2791,6 +2804,37 @@
         "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Kinesis.XML",
         "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Kinesis.dll",
         "lib/portable-net45+win8+wpa81+wp8/AWSSDK.Kinesis.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.S3/3.3.5.4": {
+      "sha512": "z8BH2jx/b1BhS1WEBQL1QT2AthASU9P4fI8Sxt7aZOCQA2fJbjawJ2s87/66d7q4nLbWa58/kv5R6jemyOuFaA==",
+      "type": "package",
+      "path": "AWSSDK.S3/3.3.5.4",
+      "files": [
+        "AWSSDK.S3.3.3.5.4.nupkg.sha512",
+        "AWSSDK.S3.nuspec",
+        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "lib/MonoAndroid10/AWSSDK.S3.XML",
+        "lib/MonoAndroid10/AWSSDK.S3.dll",
+        "lib/MonoTouch10/AWSSDK.S3.XML",
+        "lib/MonoTouch10/AWSSDK.S3.dll",
+        "lib/MonoTouch10/AWSSDK.S3.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.S3.XML",
+        "lib/Xamarin.iOS10/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.XML",
+        "lib/net35/AWSSDK.S3.dll",
+        "lib/net35/AWSSDK.S3.pdb",
+        "lib/net45/AWSSDK.S3.XML",
+        "lib/net45/AWSSDK.S3.dll",
+        "lib/net45/AWSSDK.S3.pdb",
+        "lib/netstandard1.3/AWSSDK.S3.dll",
+        "lib/netstandard1.3/AWSSDK.S3.pdb",
+        "lib/netstandard1.3/AWSSDK.S3.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.S3.pdb",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]

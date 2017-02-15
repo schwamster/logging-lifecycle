@@ -10,5 +10,5 @@ variable "log_group_name" {
 
 #!see naming convetions of buckets - only lower-case characters
 variable "bucket_name" {
-  default = "logbucket"
+  default = "8cf434d3-7425-41c2-9201-fc8e8d784a86"
 }
