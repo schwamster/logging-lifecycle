@@ -6,6 +6,16 @@ provider "aws" {
 
 data "aws_caller_identity" "current" {}
 
+resource "aws_s3_bucket" "log_bucket" {
+    bucket = "${var.bucket_name}"
+    acl = "private"
+
+    tags {
+        Name = "${var.bucket_name}"
+        Environment = "dev"
+    }
+}
+
 resource "aws_kinesis_stream" "log_stream" {
   name             = "terraform-kinesis-log"
   shard_count      = 1
